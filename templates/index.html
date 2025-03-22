@@ -1,0 +1,582 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+ 
+<div class="arabic-paragraph">
+
+<style>
+  /* Hide mobile image by default */
+.mobile-img {
+    display: none;
+}
+
+/* CSS Media Query for devices with width less than 768px */
+@media (max-width: 768px) {
+    /* Hide desktop image on mobile */
+    .desktop-img {
+        display: none;
+    }
+
+    /* Show mobile image on mobile */
+    .mobile-img {
+        display: block;
+    }
+}
+
+.timer-background {
+  background-image: url("/static/images/opacity10.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Adjust based on your needs */
+}
+</style>
+
+
+<!-- Desktop view image -->
+<!-- <a href="/register">
+    <img src="/static/images/4.png" class="super-img desktop-img">
+</a> -->
+
+<!-- Mobile view image -->
+<!-- <a href="/register">
+    <img src="/static/images/1.png" class="super-img mobile-img">
+</a> -->
+
+
+
+<div class="timer-background">
+    <div class="landing-section">
+      <div class="content-bubble">
+        <div class="landing-content">
+          <div class="landing-logo">
+            <img src="/static/images/logo_bordered.png" alt="Rahhal Logo">
+          </div>
+          <div class="landing-text">
+            <h1 class="landing-header">ساهم في تطوير قطاع الثقافة في المملكة وسافر بأفكارك إلى مستقبل الحلول الذكية لتطوير تجارب ثقافية مستدامة مع هاكثون رحال الثقافي!</h1>
+            <p class="landing-paragraph">بينما نسعى لتحسين قطاع الثقافة في المملكة، سواء كنت مطوراً أو مصمماً أو مبتكراً، رحلتك نحو الإبداع تبدأ من هنا وهذه فرصتك لإبتكار حلول تقنية تغير مسار التجربة الثقافية.</p>
+          </div>
+        </div>
+        <div class="button-wrapper">
+          <a href="/register" class="signup-button">سجل في رحال!</a>
+        </div>
+      </div>
+    </div>
+  <div class="container text-center py-5">
+    <h2 class="mb-5 arabic-headers">نهــــاية التسجيــــل بالهاكثــــون</h2>
+    <div class="countdown-container" style="direction: rtl;">
+      <div class="countdown-box days">
+        <div class="countdown-value" id="days">38</div>
+        <div class="countdown-label">ايام</div>
+      </div>
+      <div class="separator">:</div>
+      <div class="countdown-box hours">
+        <div class="countdown-value" id="hours">15</div>
+        <div class="countdown-label">ساعات</div>
+      </div>
+      <div class="separator">:</div>
+      <div class="countdown-box minutes">
+        <div class="countdown-value" id="mins">30</div>
+        <div class="countdown-label">دقائق</div>
+      </div>
+      <div class="separator">:</div>
+      <div class="countdown-box seconds">
+        <div class="countdown-value" id="seconds">4</div>
+        <div class="countdown-label">ثواني</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.timer-background {
+  padding: 3rem 0;
+}
+
+.arabic-headers {
+  font-weight: bold; /* Increased from default to make it bolder */
+  font-size: 4.5rem; /* Larger font size */
+  color: #0b3866;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+  margin-top: 40px; /* More space after header */
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  width: 130px; /* Increased from 100px */
+  height: 130px; /* Increased from 100px */
+  border-radius: 12px; /* Slightly larger radius */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.5rem; /* Increased from 3.5rem */
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.days .countdown-value {
+  background-color: #f39c12;
+}
+
+.hours .countdown-value {
+  background-color: #e74c3c;
+}
+
+.minutes .countdown-value {
+  background-color: #1e88c7;
+}
+
+.seconds .countdown-value {
+  background-color: #663399;
+}
+
+.countdown-label {
+  margin-top: 15px; /* More space between number and label */
+  color: #0b3866;
+  font-weight: 600; /* Made slightly bolder */
+  font-size: 1.5rem; /* Increased from 1.2rem */
+  font-family: 'Mahmoudart', sans-serif;
+}
+
+.separator {
+  font-size: 4rem; /* Increased from 3rem */
+  font-weight: bold;
+  color: #0b3866;
+  margin: 0 10px; /* More space around separators */
+  align-self: flex-start;
+  margin-top: 40px; /* Adjusted to align with larger boxes */
+}
+
+/* Increase container padding for more space */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Media queries adjusted for smooth scaling */
+@media (max-width: 992px) {
+  .countdown-value {
+    width: 110px;
+    height: 110px;
+    font-size: 3.5rem;
+  }
+  
+  .separator {
+    font-size: 3.5rem;
+    margin-top: 30px;
+  }
+  
+  .countdown-label {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .countdown-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .countdown-value {
+    width: 80px;
+    height: 80px;
+    font-size: 2.7rem;
+  }
+  
+  .separator {
+    font-size: 2.5rem;
+    margin-top: 25px;
+  }
+  
+  .countdown-label {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .arabic-headers {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-value {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .countdown-label {
+    font-size: 1rem;
+  }
+  
+  .separator {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+  
+  .arabic-headers {
+    font-size: 1.7rem;
+  }
+}
+</style>
+
+<script>
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minsEl = document.getElementById("mins");
+const secondsEl = document.getElementById("seconds");
+const newYears = "09 Apr 2025";
+
+function countdown() {
+    const newYearsDate = new Date(newYears);
+    const currentDate = new Date();
+    const totalSeconds = (newYearsDate - currentDate) / 1000;
+    
+    const days = Math.floor(totalSeconds / 3600 / 24);
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const mins = Math.floor(totalSeconds / 60) % 60;
+    const seconds = Math.floor(totalSeconds) % 60;
+    
+    daysEl.innerHTML = days;
+    hoursEl.innerHTML = formatTime(hours);
+    minsEl.innerHTML = formatTime(mins);
+    secondsEl.innerHTML = formatTime(seconds);
+}
+
+function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+// initial call
+countdown();
+setInterval(countdown, 1000);
+</script>
+
+
+    
+
+
+<!-- 1) Dark Blue Section -->
+<section class="tourism-section">
+  <div class="container-fluid">
+    <!-- Row for the patterns -->
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center pattern-icons">
+        <img src="/static/images/waves.png" alt="Waves Pattern" class="pattern-icon">
+        <img src="/static/images/khuzama.png" alt="Khuzama Pattern" class="pattern-icon">
+        <img src="/static/images/castle.png" alt="Castle Pattern" class="pattern-icon">
+        <img src="/static/images/sadu.png" alt="Sadu Pattern" class="pattern-icon">
+      </div>
+    </div>
+
+    <!-- Row for the heading -->
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <h2 class="text-center arabic-headers-white mb-5">
+          ما هـو هاكـثــون رِحــال الثقافي؟
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2) Light Blue Section -->
+<section class="paragraph-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <p class="text-center arabic-paragraph-white">
+          حدث يجمع بين المطورين، المصممين، ورواد الأعمال على مدار فترة زمنية محددة،
+          حيث يتعاون المشاركون في بيئة مبتكرة ومحفزة لتطوير حلول تقنية متقدمة
+          تهدف إلى تعزيز قطاع السياحة وتلبية احتياجاته المتزايدة. يهدف هذا الحدث
+          إلى خلق منصات وأدوات تساهم في تحسين تجربة السياحة، تعزيز الاستدامة في
+          المجال السياحي، ودعم الاقتصاد المحلي من خلال التقنية والإبداع.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hackathon Tracks Cards Section -->
+<section class="tracks-section">
+  <div class="container">
+      <h2 class="tracks-title arabic-headers-white">مسارات الهاكثون</h2>
+      
+      <div class="tracks-cards-container">
+          <!-- Literature/Creative Writing Track -->
+          <div class="track-card" data-color="#EE5D66">
+              <div class="track-card-front">
+                  <img src="/static/images/sadu.png" alt="Literature icon" class="track-icon">
+                  <h3 class="track-name literature">الأدب والإبداع السردي</h3>
+              </div>
+              <div class="track-card-back">
+                  <h3 class="track-name-back">الأدب والإبداع السردي</h3>
+                  <p class="track-description">مسار يركز على استخدام التقنية لدعم الكتابة الإبداعية وفنون السرد، من خلال تطوير حلول مبتكرة تعزز تجربة قراءة وكتابة الأدب.</p>
+              </div>
+          </div>
+          
+          <!-- Visual Arts Track -->
+          <div class="track-card" data-color="#53328B">
+              <div class="track-card-front">
+                  <img src="/static/images/khuzama.png" alt="Visual Arts icon" class="track-icon">
+                  <h3 class="track-name visual-arts">الفنون والثقافة البصرية</h3>
+              </div>
+              <div class="track-card-back">
+                  <h3 class="track-name-back">الفنون والثقافة البصرية</h3>
+                  <p class="track-description">مسار يدمج الإبداع الفني بالتقنيات الحديثة لتعزيز التجارب الفنية وحفظ الفن بطرق مبتكرة.</p>
+              </div>
+          </div>
+          
+          <!-- Cultural Heritage Track -->
+          <div class="track-card" data-color="#F59C23">
+              <div class="track-card-front">
+                  <img src="/static/images/castle.png" alt="Heritage icon" class="track-icon">
+                  <h3 class="track-name heritage">التراث الثقافي</h3>
+              </div>
+              <div class="track-card-back">
+                  <h3 class="track-name-back">التراث الثقافي</h3>
+                  <p class="track-description">مسار يهدف إلى تعزيز وتطوير التراث الثقافي من خلال تقديم حلول مبتكرة للحفاظ عليه وتعزيزه.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<script>
+  // Card flip functionality for mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.track-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Only apply on mobile/tablet devices
+            if (window.innerWidth <= 768) {
+                this.classList.toggle('flipped');
+            }
+        });
+    });
+    
+    // Reset cards when window is resized to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            cards.forEach(card => {
+                card.classList.remove('flipped');
+            });
+        }
+    });
+});
+</script>
+
+<!-- <script>
+const dynamicText = document.querySelector('.dynamic-text');
+
+document.addEventListener('mousemove', (event) => {
+  let fontSize = map(event.clientY, 0, window.innerHeight, 16, 32); // Range from 16px to 48px
+  dynamicText.style.fontSize = `${fontSize}px`;
+});
+
+function map(value, start1, stop1, start2, stop2) {
+  return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+}
+</script>  -->
+
+    <div class="faq-section">
+      <div class="faq-header">
+        <div class="pattern-strip">
+          <!-- Right side - fixed 4 patterns -->
+          <div class="pattern-unit-right">
+            <img src="/static/images/waves.png" alt="pattern">
+            <img src="/static/images/khuzama.png" alt="pattern">
+            <img src="/static/images/castle.png" alt="pattern">
+            <img src="/static/images/sadu.png" alt="pattern">
+          </div>
+          <!-- Middle - title -->
+          <h2 class="faq-title">الاسئلة شائعة</h2>
+          <!-- Left side - generated patterns -->
+          <div class="pattern-unit-left" id="patternLeft">
+            <!-- Will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    
+      <div class="faq-container">
+        <!-- Original Questions -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>أمن الممكن ان يحتوي فريق على مشاركين من جامعات و قطاعات مختلفة؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            نعم من الممكن
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل الحضور اجباري للمشاركة ؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            نعم
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>لا امتلك فريق محدد بعد هل من الممكن ان انشارك ؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            نعم، بالامكان التسجيل كفرد والانضمام لفريق لاحقا
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>أين سيقام الهاكثون؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            TBD
+          </div>
+        </div>
+    
+        <!-- New Questions -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>من يملك حقوق الملكية الفكرية؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            تذهب حقوق جميع الافكار في هذا الهاكثون الى TBD، وتعد مشاركة المتسابقين إقرارًا وتنازلًا منهم
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل يوجد أي رسوم على المشاركه ؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            لا توجد أي رسوم على المشاركه
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل يمكنني تغيير فريقي ؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            نعم يمكنك تغيير فريقك بشرط أن يكون قبل نهاية فترةالتسجيل
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>كم عدد الأشخاص المسموح به في الفريق الواحد ؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            الحد الأدنى لعدد الأفراد في الفريق شخصين والحد الأعلى 5 أشخاص
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>هل يمكنني تغيير المسار بعد التسجيل ؟</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            نعم يمكنك التغيير
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>كم مدة الفعالية وأيام الحضور</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            TBD
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  function fillLeftPattern() {
+    const patternLeft = document.getElementById('patternLeft');
+    const patterns = ['waves', 'khuzama', 'castle', 'sadu'];
+    const containerWidth = patternLeft.offsetWidth;
+    const patternWidth = 30; // Pattern image width + margin
+    const numberOfPatterns = Math.ceil(containerWidth / patternWidth) + 4; // Add extra patterns to ensure full coverage
+    
+    patternLeft.innerHTML = ''; // Clear existing patterns
+    
+    for (let i = 0; i < numberOfPatterns; i++) {
+      const img = document.createElement('img');
+      img.src = `/static/images/${patterns[i % 4]}.png`;
+      img.alt = 'pattern';
+      patternLeft.appendChild(img);
+    }
+  }
+
+  // Initial fill
+  fillLeftPattern();
+  
+  // Recalculate on window resize
+  window.addEventListener('resize', fillLeftPattern);
+
+  // FAQ accordion functionality
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all items
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        otherAnswer.style.height = '0px';
+      });
+      
+      // Toggle clicked item
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.height = answer.scrollHeight + 'px';
+      }
+    });
+  });
+});
+    </script>
+
+</div>
+
+
+{% endblock %}
+
+
+

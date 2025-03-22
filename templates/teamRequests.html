@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+<div class="container arabic-paragraph" >
+<!--    <h2>Join Requests for Team</h2>-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>الاسم الثلاثي</th>
+                <th>الايميل</th>
+                <th>رقم الجوال</th>
+
+                <th>الأجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+        <h1>طلبات الانضمام الى فريقك: {{team_name}}</h1>
+            {% for request in join_requests %}
+                <tr>
+                    <td>{{ request[3] }}</td> <!-- Full Name -->
+                    <td>{{ request[4] }}</td> <!-- Email -->
+                    <td>{{ request[4] }}</td> <!-- Email -->
+
+                    <td >
+                        <form action="/accept_request/{{ request[0] }}/{{ team_id }}" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-success">قبول</button>
+                        </form>
+                        <form action="/reject_request/{{ request[0] }}/{{ team_id }}" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">رفض</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

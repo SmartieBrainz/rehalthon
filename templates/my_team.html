@@ -1,0 +1,195 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <!-- {% if hasPending %}
+        Display pending join requests made by the user 
+        <div class="container">
+            <h2>Your Pending Join Requests</h2>
+            <ul>
+                    <li>Pending request to join Team: {{ team_name }}
+                        <form action="/cancel_join_request/{{team_id}}" method="post">
+                            <button type="submit" class="btn btn-warning #confirm-delete" >Cancel Request</button>
+                        </form>
+                    </li>
+            </ul>
+        </div>
+    {% endif %} -->
+<div class=" container mt-auto text-end arabic-paragraph">
+    <br>
+    {% if team_pending_requests and is_leader %}
+    <div class="container mt-3 text-end arabic-paragraph">
+        <h2 class="mb-3 ">طلبات الانضمام إلى فريقك: {{ team_name }}</h2>
+        <div class="row">
+            {% for request in team_pending_requests %}
+            <div class="col-md-4 col-sm-6 mb-4 arabic-paragraph-white">
+                <div class="card teams">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ request[3] }}</h5>
+                        <p class="card-text">الايميل: {{ request[4] }}</p>
+                        <p class="card-text">رقم الجوال: {{ request[6] }}</p>
+                        <p class="card-text">الدور: {{ request[5] }}</p>
+                        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#acceptRequestModal{{ request[0] }}">قبول</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectRequestModal{{ request[0] }}">رفض</button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Modals -->
+            <!-- Accept Request Modal -->
+            <div class="modal fade" id="acceptRequestModal{{ request[0] }}" tabindex="-1" aria-labelledby="acceptRequestModalLabel{{ request[0] }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="acceptRequestModalLabel{{ request[0] }}">تأكيد قبول الطلب</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">هل أنت متأكد من قبول الطلب؟</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                            <form action="/accept_request/{{ request[0] }}/{{ team_id }}" method="post">
+                                <button type="submit" class="btn btn-success">تأكيد القبول</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Reject Request Modal -->
+            <div class="modal fade" id="rejectRequestModal{{ request[0] }}" tabindex="-1" aria-labelledby="rejectRequestModalLabel{{ request[0] }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="rejectRequestModalLabel{{ request[0] }}">تأكيد رفض الطلب</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">هل أنت متأكد من رفض الطلب؟</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                            <form action="/reject_request/{{ request[0] }}/{{ team_id }}" method="post">
+                                <button type="submit" class="btn btn-danger">تأكيد الرفض</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <hr>
+
+        {% elif is_leader %}
+        <p class="text-muted arabic-paragraph">لا توجد طلبات انضمام </p>
+        <hr>
+    {% endif %}
+
+
+    {% if hasPending %}
+    <!-- Display pending join requests made by the user -->
+        <h2 class="mb-3">طلبات الانضمام المعلقة</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">طلب معلق للانضمام إلى الفريق: {{ team_name }}</h5>
+                <!-- Trigger modal button -->
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cancelRequestModal">
+                    إلغاء الطلب
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="cancelRequestModal" tabindex="-1" aria-labelledby="cancelRequestModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cancelRequestModalLabel">تأكيد إلغاء الطلب</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                هل أنت متأكد من أنك تريد إلغاء طلب الانضمام إلى الفريق؟
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                                <form action="/cancel_join_request/{{team_id}}" method="post">
+                                    <button type="submit" class="btn btn-warning">تأكيد الإلغاء</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endif %}
+
+{% if not hasPending %}
+
+    <h2 class="mb-3">أعضاء الفريق</h2>
+    <div class="row">
+        {% for member in members %}
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-3 arabic-paragraph-white">
+            <div class="card teams">
+                <div class="card-body">
+                    <h5 class="card-title">{{ member[3] }} {% if member[0] == leader_id %}<strong>(القائد)</strong>{% endif %}</h5>
+                    <p class="card-text">الايميل: {{ member[4] }}</p>
+                    <p class="card-text">رقم الجوال: {{ member[5] }}</p>
+                    <p class="card-text">الدور: {{ member[2] }}</p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if not is_leader %}
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#leaveTeamModal-{{ user_id }}">مغادرة الفريق</button>
+    <!-- Leave Team Modal -->
+    <div class="modal fade" id="leaveTeamModal-{{ user_id }}" tabindex="-1" aria-labelledby="leaveTeamModalLabel-{{ user_id }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="leaveTeamModalLabel-{{ user_id }}">تأكيد مغادرة الفريق</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">هل أنت متأكد من أنك تريد مغادرة الفريق؟</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <form action="/leave_team/{{ team_id }}" method="post">
+                        <button type="submit" class="btn btn-danger">تأكيد المغادرة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if is_leader %}
+    <div class="mt-4">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTeamModal">حذف الفريق</button>
+        <!-- Delete Team Modal -->
+        <div class="modal fade" id="deleteTeamModal" tabindex="-1" aria-labelledby="deleteTeamModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteTeamModalLabel">تأكيد حذف الفريق</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">هل أنت متأكد من أنك تريد حذف الفريق نهائيًا؟</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                        <form action="/delete_team/{{ team_id }}" method="post">
+                            <button type="submit" class="btn btn-danger">تأكيد الحذف</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+     
+ 
+    {% endif %}
+
+</div>
+
+
+
+    
+
+{% endblock %}  

@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+<style>
+    .btn-bd-discord {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #ffffff; /* white */
+  --bs-btn-bg: #6f42c1; /* Bootstrap violet, adjust as needed */
+  --bs-btn-border-color: #6f42c1;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #5a34a5; /* Darker violet for hover */
+  --bs-btn-hover-border-color: #5a34a5;
+  --bs-btn-focus-shadow-rgb: 111, 66, 193; /* RGB format of violet */
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #4d277f; /* Even darker violet for active */
+  --bs-btn-active-border-color: #4d277f;
+  font-weight: var(--bs-btn-font-weight);
+  color: var(--bs-btn-color);
+  background-color: var(--bs-btn-bg);
+  border-color: var(--bs-btn-border-color);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.btn-bd-discord:hover {
+  color: var(--bs-btn-hover-color);
+  background-color: var(--bs-btn-hover-bg);
+  border-color: var(--bs-btn-hover-border-color);
+}
+
+.btn-bd-discord:focus {
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
+}
+
+.btn-bd-discord:active {
+  color: var(--bs-btn-active-color);
+  background-color: var(--bs-btn-active-bg);
+  border-color: var(--bs-btn-active-border-color);
+}
+</style>
+<div class="container my-5  arabic-paragraph-white">
+    <div class="card text-center shadow-lg teams">
+        <div class="card-header">
+            <h5 class="my-2">تصفح الفرق</h5>
+        </div>
+        <div class="card-body ">
+            <p class="card-text mb-4">معلومات عن الهاكاثون</p>
+            <p class="text-light mb-4 hackathon-duration">مدة الفعالية: <span class="text-highlight">من 4 مساءً إلى 11 مساءً في غضون 3 أيام 25-26-27 فبراير 2024</span></p>
+            <p class="text-light mb-4 hackathon-location">الموقع: <span class="text-highlight">الرياض, مقر شركة T2, حي الياسمين</span></p>
+            {% if  is_member or boolean_pending_request %}
+            <form method='get'>
+                <button class="btn btn-light" disabled>انشئ فريق جديد</button>
+                
+                    <button type="submit" class="btn btn-warning m-2" formaction="/my_team">فريقي</button>
+
+                    <a class="btn btn-bd-discord m-2" style="direction: ltr;" href="https://discord.com/invite/RCapKkZF">
+                        <img src="/static/images/discord-white-icon.webp" alt="Discord" style="width: 24px; height: 24px; vertical-align: text-bottom;"> Eduthon Discord
+                    </a>
+                </form>
+        
+            {% else %}
+                <form method='get'>
+                    <button type="submit" class="btn btn-light m-2 " formaction="/create_team">انشئ فريق جديد</button>
+       
+                <button type="submit" class="btn btn-warning" disabled>فريقي</button>
+                <a class="btn btn-bd-discord m-2" style="direction: ltr;" href="https://discord.com/invite/RCapKkZF">
+                    <img src="/static/images/discord-white-icon.webp" alt="Discord" style="width: 24px; height: 24px; vertical-align: text-bottom;"> Eduthon Discord
+                </a>
+            </form>
+    
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+    <div class="container mt-3 ">
+            <div class="input-group mb-3">
+    <input type="text" id="search-input" class="form-control arabic-paragraph" placeholder="ابحث عن فريق" onkeyup="searchTeams()">
+    <button class="btn btn-outline-dark" onclick="searchTeams()">ابحث</button>
+            </div>
+
+   
+
+
+<div class="container mt-3 arabic-paragraph-white">
+    <div class="row justify-content-center">
+        {% for team in teams %}
+            {% if teams_members[team[0]]|length < 5 %}
+                <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                    <div class="card teams flex-fill">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">فريق: {{ team[1] }}</h5>
+                            <p class="card-text">
+                                {% for member in teams_members[team[0]] %}
+                                    {% if member[0] == team[2] %}
+                                        <strong>القائد:</strong> {{ member[1] }} - {{ member[2] }}<br>
+                                    {% else %}
+                                        {{ member[1] }} - {{ member[2] }}<br>
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+                            <strong class="team-size ">عدد الأعضاء: {{ teams_members[team[0]]|length }}/5</strong>
+                        </div>
+                        {% if  is_member %}
+                            <button type="button" class="btn join" disabled>لديك فريق</button>
+                        {% elif boolean_pending_request %}
+                            <button type="button" class="btn join" disabled>لديك طلب معلق</button>
+                        {% else %}
+                            <form action="/request_to_join/{{ team[0] }}" method="post">
+                                <button type="submit" class="btn join">طلب الانضمام</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+

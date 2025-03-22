@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/static/images/edu_cube.png">
+
+<title>Registration Closed</title>
+<!-- Link to Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel='stylesheet' type='text/css' media='screen' href='/static/styles.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='/static/features.css'>
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light arabic-paragraph" style="direction: ltr;" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/static/images/the logo.png" alt="Logo" style="height: 46px;">
+                <img src="/static/images/T2-Logo svg.png" alt="T2" style="height: 46px;">
+            </a>
+        </div>
+    </nav>
+    <br>
+    <!-- Closed Announcement -->
+    <div class="container" style="direction: rtl;">
+        <div class="alert alert-danger " style="direction: rtl;" role="alert">
+            <h4 class="alert-heading" style="direction: rtl;">التسجيل مغلق</h4>
+            <p style="direction: rtl;">لقد انتهت الآن فترة التسجيل.</p>
+        </div>
+    </div>
+<!-- </div> -->
+
+
+<style>
+    body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #4032ff, #a83ce7, #ffffff, #6723d5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* align items to the start of the container */
+    height: auto; /* changed from 100% to auto */
+    padding: 20px 0; /* add padding top and bottom as needed */
+}
+
+.contact-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    background: transparent;
+}
+
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus ~ label, .input-group input:valid ~ label,
+.input-group textarea:focus ~ label, .input-group textarea:valid ~ label {
+    transform: translateY(-20px);
+    font-size: 12px;
+    color: #23a6d5;
+}
+
+.contact-submit-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #f9b5ff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+.contact-submit-btn:hover {
+    background: #1e90ff;
+}
+
+.btn-bd-discord {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #6f42c1; 
+  --bs-btn-border-color: #6f42c1;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #5a34a5;
+  --bs-btn-hover-border-color: #5a34a5;
+  --bs-btn-focus-shadow-rgb: 111, 66, 193;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #4d277f; 
+  --bs-btn-active-border-color: #4d277f;
+  font-weight: var(--bs-btn-font-weight);
+  color: var(--bs-btn-color);
+  background-color: var(--bs-btn-bg);
+  border-color: var(--bs-btn-border-color);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.btn-bd-discord:hover {
+  color: var(--bs-btn-hover-color);
+  background-color: var(--bs-btn-hover-bg);
+  border-color: var(--bs-btn-hover-border-color);
+}
+
+.btn-bd-discord:focus {
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
+}
+
+.btn-bd-discord:active {
+  color: var(--bs-btn-active-color);
+  background-color: var(--bs-btn-active-bg);
+  border-color: var(--bs-btn-active-border-color);
+}
+
+</style>
+
+<br>
+<div class="contact-container arabic-paragraph">
+    <div class="contact-form-container">
+        <form id="contact-form" action="/contact" method="post">
+            <h2>تواصل معنا</h2>
+            <div class="input-group">
+                <input type="text" name="name" required>
+                <label>اسمك</label>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>ايميلك</label>
+            </div>
+            <div class="input-group">
+                <textarea name="message" required></textarea>
+                <label>رسالتك</label>
+            </div>
+            <button type="submit" class="contact-submit-btn">ارسل</button>
+        </form>
+    </div>
+    
+
+
+</div>
+
+<br>
+<div class="contact-container arabic-paragraph">
+<div class="card mt-3">
+  <div class="card-body">
+    <div class="contact-info text-center">
+        <p>أو تواصل معنا عبر الديسكورد:</p>
+       <a class="btn btn-bd-discord m-2" style="direction: ltr;" href="https://discord.com/invite/RCapKkZF">
+                    <img src="/static/images/discord-white-icon.webp" alt="Discord" style="width: 24px; height: 24px; vertical-align: text-bottom;"> Eduthon Discord
+                </a>
+      <p>أو عبر البريد الإلكتروني: <a href="eduthon.ftc@gmail.com">eduthon.ftc@gmail.com</a></p>
+        
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+<!-- Link to Bootstrap JS and its dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.10/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Members</title>
+    <!-- Include Bootstrap CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2>Team Members</h2>
+        <ul>
+            {% if is_leader %}
+            <form action="/delete_team/{{ team_id }}" method="post">
+        <button type="submit" class="btn btn-danger">Delete Team</button>
+    </form>
+            {% endif %}
+    {% for member in members %}
+        <li>{{ member[1] }} (User ID: {{ member[0] }})
+            <form action="/remove_member/{{ team_id }}/{{ member[0] }}" method="post">
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+        </li>
+
+
+
+    {% endfor %}
+</ul>
+    </div>
+</body>
+</html>

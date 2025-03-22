@@ -1,0 +1,33 @@
+{% extends "layout.html" %} <!-- Replace with your actual layout template name -->
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Team Management</h2>
+    <a href="{{ url_for('admin_add_team') }}" class="btn btn-primary mb-3">Add New Team</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Team ID</th>
+                <th>Team Name</th>
+                <th>Leader Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in teams %}
+            <tr>
+                <td>{{ team.team_id }}</td>
+                <td>{{ team.team_name }}</td>
+                <td>{{ team.created_by }}</td>
+                <td>
+                    <a href="{{ url_for('admin_team_members', team_id=team.team_id) }}" class="btn btn-info">Members</a>
+                    <form action="{{ url_for('admin_delete_team', team_id=team.[0]) }}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this team?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

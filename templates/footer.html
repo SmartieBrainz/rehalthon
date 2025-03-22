@@ -1,0 +1,140 @@
+{% block content %}
+    {% endblock %}
+
+<br>
+<div class="navbar-gradient-eduthon arabic-paragraph" style="direction: ltr;">
+<div class="container">
+    <footer class="py-5">
+        <div class="row">
+            <!-- Rehal Section -->
+            <div class="col-12 col-md-6 mb-3 text-center">
+                <a href="/" class="d-flex justify-content-center align-items-center mb-3 link-dark text-decoration-none">
+                    <img src="/static/images/Rehal_white.png" alt="Rehal Logo" width="180" height="288">
+                </a>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-12 col-md-6 mb-3 text-center">
+                <h2 class="footer-heading">الروابط السريعة</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/login" class="nav-link p-0 text-muted">تسجيل الدخول</a></li>
+                    <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">تواصل معنا</a></li>
+                    <li class="nav-item mb-2"><a href="/teams" class="nav-link p-0 text-muted">الفرق</a></li>
+                    <li class="nav-item mb-2"><a href="/myteam" class="nav-link p-0 text-muted">فريقي</a></li>
+                    <li class="nav-item mb-2"><a href="/register" class="nav-link p-0 text-muted">تسجيل</a></li>
+                </ul>
+            </div>
+        </div>  
+
+        <!-- Footer Bottom Section with Social Media Icons -->
+        <div class="d-flex flex-column align-items-center py-4 my-4 border-top">
+            <p>&copy; Powered by Diwan.</p>
+            <ul class="list-unstyled d-flex justify-content-center">
+                <li class="ms-3"><a class="link-muted" href="https://www.linkedin.com/company/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%AF%D9%8A%D9%88%D8%A7%D9%86/"><img src="/static/images/linkedin_white.png" alt="LinkedIn" width="35" height="35"></a></li>
+                <li class="ms-3"><a class="link-muted" href="https://x.com/diwan_spp"><img src="/static/images/twitter_white.png" alt="Twitter" width="35" height="35"></a></li>
+            </ul>
+        </div>
+        <div id="footerPattern"></div>
+    </footer>
+</div>
+</div>
+
+<style> 
+    .footer-heading {
+        font-family: 'Mahmoudart-bold', sans-serif;
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+    }
+    .custom-footer .company-info {
+        margin-bottom: 20px;
+    }
+
+    .custom-footer .company-title {
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .custom-footer .company-logo {
+        max-width: 100px;
+        margin-bottom: 15px;
+    }
+
+    .custom-footer .company-description {
+        color: #dddddd;
+        margin-bottom: 15px;
+    }
+
+    .custom-footer .social-links a {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .custom-footer .social-links img {
+        width: 24px;
+    }
+
+    .custom-footer .footer-text p {
+        color: white;
+        margin-top: 20px;
+    }
+</style>
+
+
+
+<!-- JavaScript to dynamically fill the pattern -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function fillFooterPattern() {
+      const footerPattern = document.getElementById('footerPattern');
+      // List of your image names (without the .png extension)
+      const patterns = ['sadu_white', 'khuzama_white', 'castle_white', 'waves_white'];
+      
+      // Get the width of the container
+      const containerWidth = footerPattern.offsetWidth;
+      // Adjust this value to the approximate width (in pixels) of your image
+      const patternWidth = 30;
+      // Calculate how many images you need plus a few extra for coverage
+      const numberOfPatterns = Math.ceil(containerWidth / patternWidth) + 2;
+      
+      // Clear any existing content
+      footerPattern.innerHTML = '';
+      
+      // Append the images repeatedly
+      for (let i = 0; i < numberOfPatterns; i++) {
+        const img = document.createElement('img');
+        img.src = `/static/images/${patterns[i % patterns.length]}.png`;
+        img.alt = 'footer pattern';
+        // Remove any margin (if needed)
+        img.style.margin = '0';
+        footerPattern.appendChild(img);
+      }
+    }
+    // Initial fill and on resize
+    fillFooterPattern();
+    window.addEventListener('resize', fillFooterPattern);
+  });
+</script>
+
+<!-- CSS to ensure a seamless, full-width pattern with no spacing -->
+<style>
+  #footerPattern {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+  }
+  #footerPattern img {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 30px;
+  }
+</style>
+</body> 

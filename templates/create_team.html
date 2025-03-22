@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+<div class="container mt-5 arabic-paragraph">
+    <h2 class="mb-4 text-end">إنشاء فريق جديد</h2>
+    <form action="/create_team" method="post" class="text-end">
+        <div class="mb-3">
+            <label for="team_name" class="form-label">اسم الفريق:</label>
+            <input type="text" class="form-control" id="team_name" name="team_name" placeholder="أدخل اسم الفريق" required maxlength="25">
+        </div>
+        <div class="">
+            <button type="submit" class="btn btn-primary">إنشاء الفريق</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

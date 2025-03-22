@@ -1,0 +1,433 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container mt-5 arabic-paragraph">
+    <div class="me-2">
+    <a  href="/login" class="btn btn-outline-primary  ">  هل لديك حساب؟ تسجيل الدخول</a>
+
+</div>
+
+
+<div class="container mt-5 arabic-paragraph" >
+    <h1>تسجيل</h1>
+    <br>
+    <form action="/register" method="post">
+        <!-- Full Name -->
+        <div class="mb-3">
+            <label for="full-name" class="form-label" >الاسم الثلاثي (اجباري)</label>
+            <input type="text" class="form-control" id="full-name" placeholder="الاسم الثلاثي" name="full_name" required value="{{ user_data.get('full_name', '') }}">
+        </div>
+
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="username" class="form-label">اسم المستخدم (اجباري)</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="اسم المستخدم" required value="{{ user_data.get('username', '') }}">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">الايميل (اجباري)</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="الايميل" required value="{{ user_data.get('email', '') }}">
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="password" class="form-label">الباسورد (اجباري)</label>
+            <input type="password" class="form-control" id="password" placeholder="الرقم السري" name="password" required value="{{ user_data.get('password', '') }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="phone_number" class="form-label">رقم الجوال (اجباري)</label>
+            <input type="text" class="form-control" id="phone_number" placeholder="رقم الجوال" name="phone_number" required value="{{ user_data.get('phone_number', '') }}">
+        </div>
+
+   <div class="mb-3">
+    <label for="gender" class="form-label">الجنس</label>
+    <select class="form-control" id="gender" name="gender" required>
+        <option value="" selected disabled>اختر</option>
+        <option value="ذكر" {% if user_data.get('gender') == 'ذكر' %}selected{% endif %}>ذكر</option>
+        <option value="انثى" {% if user_data.get('gender') == 'انثى' %}selected{% endif %}>انثى</option>
+    </select>
+</div>
+
+                <div class="mb-3">
+            <label for="role" class="form-label">الدور</label>
+                 <select type="text" class="form-control" id="role" name="role" required value="{{ user_data.get('role', '') }} " onchange="handleRoleChange()">
+                                             <option value="" selected disabled>اختر (اجباري)</option>
+
+                <option>مصمم جرافيكي</option>
+                <option>مصمم واجهات</option>
+                <option>مطور تطبيقات الجوال</option>
+                <option>مطور ويب </option>
+                <option>مبرمج</option>
+                <option>صاحب فكرة</option>
+                <option> أخرى</option>
+
+
+    </select>
+
+            </div>
+
+            
+<!-- Hidden Text Input for Other Role -->
+<div class="mb-3" id="otherRoleInput" style="display: none;">
+    <label for="otherRole" class="form-label"> (اجباري) أدخل دورك</label>
+    <input type="text" class="form-control" id="otherRole" name="otherRole">
+</div>
+
+        <div class="mb-3">
+            <label for="dob" class="form-label">الميلاد (اجباري)</label>
+            <input min="1900-1-1" max='2024-1-1' type="date" class="form-control" id="dob" name="dob" required value="{{ user_data.get('dob', '') }}"  >
+        </div>
+
+
+
+        <div class="container mt-5 arabic-paragraph">
+            <h1>عرفنا عنك</h1>
+            <form action="/register" method="post">
+                <!-- Personal Information Fields -->
+                <!-- Full Name, Username, Email, Password, Phone Number, Gender, Role, Date of Birth -->
+        
+                <!-- Accordion Start -->
+                <div class="accordion" id="registrationAccordion">
+                    <!-- Educational Level & University -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                المعلومات التعليمية (اجباري)
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                            <div class="accordion-body">
+                                <!-- Educational Level -->
+                                <div class="mb-3">
+                                    <label for="educational_level" class="form-label">المستوى التعليمي</label>
+                                    <select class="form-select" id="educational_level" name="educational_level" required onchange="handleEducationalLevelChange()">
+                                        <option value="" selected disabled>اختر المستوى التعليمي</option>
+                                        <option value="الثانوية العامة">الثانوية العامة</option>
+                                        <option value="دبلوم">دبلوم </option>
+                                        <option value="بكالوريوس">بكالوريوس</option>
+                                        <option value="ماجستير">ماجستير</option>
+                                        <option value="دكتوراه">دكتوراه</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                                </div>
+                                <!-- Other Educational Level Input -->
+                                <div id="otherEducationalLevelInput" class="mb-3" style="display: none;">
+                                    <label for="otherEducationalLevel" class="form-label">أدخل المستوى التعليمي الآخر</label>
+                                    <input type="text" class="form-control" id="otherEducationalLevel" name="otherEducationalLevel">
+                                </div>
+                                <!-- University Selection, shown conditionally -->
+                                <div id="universitySelection" class="mb-3" style="display: none;">
+                                    <label for="university" class="form-label">الجامعة</label>
+                                    <select class="form-control" id="university" name="university" onchange="handleUniversityChange()">
+                                        <option value="">اختر جامعة</option>
+                                        <option value="جامعة_الملك_سعود">جامعة الملك سعود</option>
+                                        <option value="جامعة_الملك_عبدالعزيز">جامعة الملك عبدالعزيز</option>
+                                        <option value="جامعة_الملك_فهد_للبترول_والمعادن">جامعة الملك فهد للبترول والمعادن</option>
+                                        <option value="جامعة_الملك_خالد">جامعة الملك خالد</option>
+                                        <option value="جامعة_الأميرة_نورة_بنت_عبدالرحمن">جامعة الأميرة نورة بنت عبد الرحمن</option>
+                                        <option value="الجامعة_الإسلامية_بالمدينة_المنورة">الجامعة الإسلامية بالمدينة المنورة</option>
+                                        <option value="other" id="otherUniversity">أخرى</option>
+                                    </select>
+                                </div>
+                                <!-- Conditional Other University Input -->
+                                <div id="otherUniversityInput" class="mb-3" style="display: none;">
+                                    <label for="otherUniversity" class="form-label">أدخل اسم الجامعة</label>
+                                    <input type="text" class="form-control" id="otherUniversity" name="otherUniversity">
+                                </div>
+                                <!-- Major Selection, shown conditionally -->
+                                <div id="majorSelection" class="mb-3" style="display: none;">
+                                    <label for="major" class="form-label">التخصص الجامعي</label>
+                                    <select class="form-select" id="major" name="major">
+                                        <option value="" selected disabled>اختر التخصص</option>
+                                        <option value="علوم الحاسوب">علوم الحاسوب</option>
+                                        <option value="هندسة البرمجيات">هندسة البرمجيات</option>
+                                        <option value="تقنية المعلومات">تقنية المعلومات</option>
+                                        <option value="هندسة البرمجيات"> نظم المعلومات</option>
+                                        <option value="هندسة حاسوب">هندسة الحاسب</option>
+                            
+                                        <option value="تقنیات مواقع اإلنرتنت والجرافیك (علمي أو مايعادلها فقط)">تقنیات مواقع اإلنرتنت والجرافیك (علمي أو مايعادلها فقط)</option>
+                                        <option value="إدارة الموارد البشریة">إدارة الموارد البشریة</option>
+                                        <option value="السكرتاریة التنفیذیة">السكرتاریة التنفیذیة</option>
+                                        <option value="إدارة المالیة والمصرفیة">إدارة المالیة والمصرفیة</option>
+                                        <option value="التسویق">التسویق</option>
+                                        <option value="إدارة أعمال التأمین">إدارة أعمال التأمین</option>
+                                        <option value="الشبكات">الشبكات</option>
+                                        <option value="أمن السيرباني">أمن السيرباني</option>
+                                        <option value="تسویق تطبیقي">تسویق تطبیقي</option>
+                                        <option value="مالیة تطبیقي">مالیة تطبیقي</option>
+                                        <option value="االقتصاد">االقتصاد</option>
+                                        <option value="المصرفیة اإلسالمیة">المصرفیة اإلسالمیة</option>
+                                        <option value="المحاسبة">المحاسبة</option>
+                                        <option value="المالیة">المالیة</option>
+                                        <option value="التسویق">التسویق</option>
+                                        <option value="نظم المعلومات اإلداریة">نظم المعلومات اإلداریة</option>
+                                        <option value="علوم الحاسب التطبیقي">علوم الحاسب التطبیقي</option>
+                                        <option value="نظم المعلومات التطبیقي">نظم المعلومات التطبیقي</option>
+                                        <option value="االقتصاد">االقتصاد</option>
+                                        <option value="المصرفیة اإلسالمیة">المصرفیة اإلسالمیة</option>
+                                        <option value="المحاسبة">المحاسبة</option>
+                                        <option value="المالیة">المالیة</option>
+                                        <option value="التسویق">التسویق</option>
+                                        <option value="نظم المعلومات اإلداریة">نظم المعلومات اإلداریة</option>
+                                        <option value="العمارة وعلوم البناء">العمارة وعلوم البناء</option>
+                                        <option value="التخطیط العمراني">التخطیط العمراني</option>
+                                        <option value="الجیولوجیا">الجیولوجیا</option>
+                                        <option value="الجیوفیزیاء">الجیوفیزیاء</option>
+                                        <option value="بحوث العملیات">بحوث العملیات</option>
+                                        <option value="علم الحیوان">علم الحیوان</option>
+                                        <option value="الریاضیات االكتواریة والمالیة">الریاضیات االكتواریة والمالیة</option>
+                                        <option value="الكیمیاء الحیویة">الكیمیاء الحیویة</option>
+                                        <option value="النبات">النبات</option>
+                                        <option value="الكیمیاء">الكیمیاء</option>
+                                        <option value="الریاضیات">الریاضیات</option>
+                                        <option value="األحیاء الدقیقة">األحیاء الدقیقة</option>
+                                        <option value="الفیزیاء">الفیزیاء</option>
+                                        <option value="اإلحصاء">اإلحصاء</option>
+                                        <option value="تقنية المعلومات">تقنية المعلومات</option>
+                                        <option value="الهندسة الكهربائیة">الهندسة الكهربائیة</option>
+                                        <option value="الهندسة الكیمیائیة">الهندسة الكیمیائیة</option>
+                                        <option value="الهندسة الصناعیة">الهندسة الصناعیة</option>
+                                        <option value="الهندسة المدنیة">الهندسة المدنیة</option>
+                                        <option value="هندسة المساحة">هندسة المساحة</option>
+                                        <option value="الهندسة المیكانیكیة">الهندسة المیكانیكیة</option>
+                                        <option value="هندسة البرتول والغاز الطبیعي">هندسة البرتول والغاز الطبیعي</option>
+                                        <option value="other">أخرى (اكتبها)</option>      
+                                    </select>
+                                </div>
+                                <!-- Conditional Other Major Input -->
+                                <div id="otherMajorInput" class="mb-3" style="display: none;">
+                                    <label for="otherMajor" class="form-label">أدخل التخصص الآخر</label>
+                                    <input type="text" class="form-control" id="otherMajor" name="otherMajor">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Work Information Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                المعلومات المهنية
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                            <div class="accordion-body">
+                                <!-- Job Title -->
+                                <div class="mb-3">
+                                    <label for="job_title" class="form-label">المسمى الوظيفي</label>
+                                    <select class="form-select" id="job_title" name="job_title" required onchange="handleJobTitleChange()">
+                                        <option value="" selected disabled>اختر المسمى الوظيفي</option>
+                                        <option value="طالب">طالب</option>
+                                        <!-- Other job titles -->
+                                        <option value="other">أخرى (سوق العمل)</option>
+                                    </select>
+                                </div>
+                                <!-- Conditional Industry/Company Input for working market -->
+                                <div id="industryCompanyInput" class="mb-3" style="display: none;">
+                                    <label for="industryCompany" class="form-label">الشركة/الصناعة التي عملت بها</label>
+                                    <input type="text" class="form-control" id="industryCompany" name="industryCompany">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Additional Information and Submit Button -->
+        </div>
+        
+<br>
+
+
+<div class="mb-3">
+    <label for="bio" class="form-label">الفكرة</label>
+    <textarea class="form-control" id="bio" name="bio">{{ user_data.get('bio', '') }}</textarea>
+</div>
+
+        <div class="mb-3">
+            <label for="linkedin_url" class="form-label">حسابك في لنكد ان (اختياري)</label>
+            <input type="" class="form-control" id="linkedin_url" name="linkedin_url" value="{{ user_data.get('linkedin_url', '') }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="twitter_handle" class="form-label">حسابك في اكس - تويتر سابقا (اختياري)</label>
+            <input type="" class="form-control" id="twitter_handle" name="twitter_handle" value="{{ user_data.get('twitter_handle', '') }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="github_username" class="form-label">حسابك في قيت هب (اختياري)</label>
+            <input type="" class="form-control" id="github_username" name="github_username" value="{{ user_data.get('github_username', '') }}" >
+        </div>
+
+        <!-- Submit Button -->
+        <!-- <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#termsModal">تسجيل</button> -->
+
+
+<!-- Terms and Conditions Checkbox -->
+<div class="mb-3">
+    <input type="checkbox" id="termsCheckbox">
+    <label for="termsCheckbox">أوافق على <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">الشروط والأحكام</a></label>
+</div>
+  
+  <!-- Submit Button - Initially Disabled -->
+  <button type="submit" class="btn btn-success" id="submitBtn" disabled>تسجيل</button>
+
+
+ <!-- Terms and Conditions Modal -->
+ <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="termsModalLabel">شروط وأحكام إيدوثون / Eduthon Terms & Conditions</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+           <h6>شروط وأحكام إيدوثون</h6>
+           <p>مرحبًا بكم في حدث إيدوثون! نحن متحمسون لمشاركتكم في هذه الفرصة لعرض مهاراتكم وإبداعاتكم. يرجى قراءة الشروط والأحكام التالية بعناية قبل المشاركة في الحدث.
+ 
+           بمشاركتك في إيدوثون، أنت تقر وتوافق على أنه يمكن مشاركة أي بيانات تقدمها مع منظمات خارجية للبحث والتحليل. نحن نأخذ خصوصيتكم على محمل الجد وسنقوم فقط بمشاركة بياناتكم مع شركاء موثوق بهم وافقوا على الحفاظ على سريتها وأمانها. إذا كانت لديكم أي مخاوف بشأن استخدام بياناتكم، يرجى التواصل معنا.
+           
+           الأهلية: حدث إيدوثون مفتوح للأفراد الذين هم من طلاب الجامعات. يجب على المشاركين التسجيل للحدث والموافقة على الشروط والأحكام.
+           
+           تشكيل الفريق: يمكن للمشاركين تشكيل فريق من 4-5 أعضاء. بمجرد تشكيل فريق، لا يمكن تغييره خلال الحدث.
+           
+           إرشادات التقديم: يجب على المشاركين اتباع إرشادات التقديم التي يقدمها المنظمون. يجب أن تكون المشاركات عملًا أصليًا، ويجب أن يتم نسب أي استخدام لمواد من طرف ثالث بشكل صحيح.
+           
+           الاستبعاد: يحتفظ المنظمون بالحق في استبعاد أي مشارك يخالف الشروط والأحكام أو يشارك في أي سلوك يعتبر غير مناسب.
+           
+           مدونة السلوك: يُتوقع من المشاركين التصرف بشكل مهني واحترامي تجاه المشاركين الآخرين، والمنظمين، والرعاة. لن يتم التسامح مع أي شكل من أشكال التحرش، أو التمييز، أو السلوك غير المناسب وقد يؤدي إلى الاستبعاد.
+           
+           الملكية الفكرية: تذهب حقوق الملكية الفكرية للفائزين في المراكز الثلاثة الأولى إلى شركة T2، وتعد مشاركة المتسابقين إقرارًا وتنازلًا منهم عن تلك الحقوق لشركة T2.
+           
+           معايير التقييم: سيتم تقييم المشاريع بناءً على الإبداع، الابتكار، الصلة بالموضوع، والتنفيذ التقني. قرار الحكام نهائي.
+           
+           الجوائز: سيتم منح جوائز للفرق الفائزة. سيتم الإعلان عن الجوائز في بداية الحدث وقد تختلف بناءً على رعاية الحدث.
+           
+           المسؤولية: يقر المشاركون بأنهم المسؤولون الوحيدون عن أي إصابات، خسائر، أو أضرار قد تحدث خلال الحدث. المنظمون والرعاة ليسوا مسؤولين عن أي مطالبات أو أضرار ناتجة عن الحدث.
+           
+           تعديل الشروط والأحكام: يحتفظ المنظمون بالحق في تعديل شروط وأحكام الحدث في أي وقت. سيتم إبلاغ المشاركين بأي تغييرات.
+           
+           بمشاركتك في إيدوثون، أنت توافق على أنه يمكن استخدام أي صور أو مقاطع فيديو تم التقاطها لك خلال الحدث من قبل المنظمين لأغراض ترويجية، بما في ذلك وليس محصورًا بوسائل التواصل الاجتماعي، والموقع الإلكتروني، ومواد الإعلان. يرجى ملاحظة أن تقديم طلب كتابي بعدم تضمينك في مثل هذه المواد لا يضمن استبعاد جميع الصور أو مقاطع الفيديو لك من المواد الترويجية. سيبذل المنظمون جهودًا معقولة لاحترام طلبك ولكن لا يمكن ضمان الاستبعاد الكامل.
+           
+           بالتوفيق واستمتعوا! </p>
+           <!-- Include all Arabic terms here -->
+           
+           <hr> <!-- Separator for readability -->
+           <div style="direction: ltr;">
+ 
+           <h6>Eduthon Terms & Conditions</h6>
+           <p>Welcome to our Eduthon event! We're excited to have you participate in this opportunity to showcase your skills and creativity...</p>
+ 
+           <!-- Include all English terms here -->
+           Eduthon Terms & Conditions
+           Welcome to our Eduthon event! We're excited to have you participate in this opportunity to showcase your
+           skills and creativity. Please read the following terms and conditions carefully before participating in the
+           event.
+           By participating in the Eduthon, you acknowledge and agree that any data you provide may be shared with
+           third-party organizations for research and analysis. We take your privacy seriously and will only share your
+           data with trusted partners who have agreed to maintain its confidentiality and security. If you have any
+           concerns about the use of your data, please contact us.
+           Eligibility: The Eduthon event is open to individuals who are undergraduates. Participants must be
+           registered for the event and agree to the terms and conditions.
+           Team Formation: Participants can form a team of between 4-5 members. Once a team is formed, it cannot
+           be changed during the event.
+           Submission Guidelines: Participants must follow the submission guidelines provided by the organizers.
+           Submissions must be original work, and any use of third-party materials must be properly attributed.
+           Disqualification: The organizers reserve the right to disqualify any participant who violates the terms and
+           conditions or engages in any conduct that is deemed inappropriate.
+           Code of Conduct: Participants are expected to behave professionally and respectfully towards other
+           participants, organizers, and sponsors. Any form of harassment, discrimination, or inappropriate behaviour
+           will not be tolerated and may result in disqualification.
+           Intellectual Property: The intellectual property rights of the winners in the top three positions go to
+           company T2, and participation by the contestants constitutes an acknowledgment and transfer of those
+           rights to company T2.
+           Judging Criteria: Projects will be judged based on creativity, innovation, relevance to the theme, and
+           technical implementation. The judges' decision is final.
+           Prizes: Prizes will be awarded to the winning teams. The prizes will be announced at the start of the event
+           and may vary based on the event's sponsorship.
+           Liability: Participants acknowledge that they are solely responsible for any injury, loss, or damage that may
+           occur during the event. The organizers and sponsors are not liable for any claims or damages arising from
+           the event.
+           Modification of Terms and Conditions: The organizers reserve the right to modify the terms and conditions
+           of the event at any time. Participants will be notified of any changes.
+           By participating in the Eduthon, you agree that any pictures or videos taken of you during the event may be
+           used by the organizers for promotional purposes, including but not limited to social media, website, and
+           advertising materials. Please note that submitting a written request to not be included in such materials
+           does not guarantee the exclusion of all pictures or videos of you from promotional materials. The
+           organizers will make reasonable efforts to honour your request but cannot guarantee complete exclusion.
+           Good luck and have fun!  
+         </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق / Close</button>
+           <button type="submit" class="btn btn-primary">موافق / Agree</button>
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق / Close</button>
+          <button type="submit" class="btn btn-primary">موافق / Agree</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+        </form>
+        </div>
+
+        <script>
+            document.getElementById('termsCheckbox').addEventListener('change', function(e) {
+              var submitBtn = document.getElementById('submitBtn');
+              submitBtn.disabled = !this.checked;
+            });
+            </script>
+
+<script>
+    // JavaScript for handling changes
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('educational_level').addEventListener('change', handleEducationalLevelChange);
+        document.getElementById('university').addEventListener('change', handleUniversityChange);
+        document.getElementById('major').addEventListener('change', handleMajorChange);
+        document.getElementById('job_title').addEventListener('change', handleJobTitleChange);
+    });
+    
+    function handleEducationalLevelChange() {
+        var level = document.getElementById('educational_level').value;
+        var showUniversity = level === 'بكالوريوس' || level === 'ماجستير' || level === 'دكتوراه' || level === 'دبلوم' ;
+        document.getElementById('universitySelection').style.display = showUniversity ? "block" : "none";
+        document.getElementById('otherEducationalLevelInput').style.display = level === 'other' ? "block" : "none";
+        // Reset university and major selection when educational level changes
+        document.getElementById('university').value = '';
+        document.getElementById('otherUniversityInput').style.display = "none";
+        document.getElementById('majorSelection').style.display = "none";
+        document.getElementById('otherMajorInput').style.display = "none";
+    }
+    
+    function handleUniversityChange() {
+        var university = document.getElementById('university').value;
+        document.getElementById('otherUniversityInput').style.display = university === 'other' ? "block" : "none";
+        document.getElementById('majorSelection').style.display = university !== 'other' && university !== '' ? "block" : "none";
+        // Reset major selection when university changes
+        document.getElementById('major').value = '';
+        document.getElementById('otherMajorInput').style.display = "none";
+    }
+    
+    function handleMajorChange() {
+        var major = document.getElementById('major').value;
+        document.getElementById('otherMajorInput').style.display = major === 'other' ? "block" : "none";
+    }
+    
+    function handleJobTitleChange() {
+        var jobTitle = document.getElementById('job_title').value;
+        var isStudent = jobTitle === 'طالب';
+        document.getElementById('industryCompanyInput').style.display = jobTitle === 'other' && !isStudent ? "block" : "none";
+    }
+
+    function handleRoleChange() {
+    var role = document.getElementById('role').value;
+    var otherRoleInput = document.getElementById('otherRoleInput');
+    if(role === 'أخرى') {
+        otherRoleInput.style.display = 'block';
+    } else {
+        otherRoleInput.style.display = 'none';
+    }
+}
+    </script>
+
+{% endblock %}

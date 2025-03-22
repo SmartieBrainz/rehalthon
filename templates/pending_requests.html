@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+<div class="container arabic-paragraph" >
+    <h2>My Pending Requests</h2>
+    {% if teams_info %}
+        <ul>
+        {% for team in teams_info %}
+            <li>{{ team.team_name }} - Request Pending</li> <!-- Display additional team info as needed -->
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pending requests.</p>
+    {% endif %}
+</div>
+{% endblock %}

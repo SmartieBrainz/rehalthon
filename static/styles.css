@@ -1,0 +1,1481 @@
+@font-face {
+  font-family: 'Mahmoudart';
+  src: url('/static/fonts/MAHMOUDART-BLACK.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mahmoudart-bold';
+  src: url('/static/fonts/MAHMOUDART-BOLD.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Navbar gradient for eduthon */
+.navbar-gradient-eduthon {
+  background: #1B447A !important; /* Solid blue color matching Image 2 */
+  color: #ffffff !important; /* Change text color to white */
+}
+
+/* Make sure all nav links are white on blue background */
+.navbar-gradient-eduthon .nav-link {
+  color: #ffffff !important;
+}
+
+/* Style for the outline button (login) to be white outline on blue */
+.btn-outline-light {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border-radius: 50px !important; /* Make it oval */
+  padding: 8px 25px !important; /* Adjust padding for oval shape */
+  min-width: 120px; /* Ensure minimum width for oval shape */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: #1B447A  !important;
+}
+
+/* Fix for the toggle button to have white icon on blue */
+.navbar-gradient-eduthon .navbar-toggler {
+  border-color: #ffffff !important;
+}
+
+.navbar-gradient-eduthon .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+/* suggestion for another colour is (90deg, #8D5C57 0%, #D9A37A 50%, #BCA585 100%) */
+
+
+/* .bg-gradient-eduthon {
+    background: rgb(139,122,240);
+    background: linear-gradient(45deg, rgba(139,122,240,0.9164040616246498) 0%, rgba(230,219,246,1) 96%);   
+} */
+
+
+.rounded-rectangle {
+    border-radius: 25px; /* Adjust as needed */
+    background-color: #f8f9fa; /* Adjust background color as needed */
+    padding: 2rem; /* Adjust padding as needed */
+    height: 100%; /* Adjust based on content */
+}
+
+.custom-btn {
+    /* Style your button here */
+    background-color: #4B49AC; /* Adjust to match your button color */
+    color: white; /* Adjust text color as needed */
+    border: none;
+    padding: 0.5rem 1.5rem; /* Adjust padding as needed */
+    border-radius: 10px; /* Adjust border-radius as needed */
+}
+
+.white-nav-link {
+  color: white !important;
+}
+
+
+/* Adjust padding and margins as needed */
+.padded-section {
+    padding-left:  1%; /* Adjust the percentage as needed */
+    padding-right: 1%; /* Adjust the percentage as needed */
+}
+.rounded-rectangle {
+    /* background-color: rgb(232, 226, 255); This is an example background color */
+    background-color: #efeff1; /* This is an example background color */
+    color: #623abd;
+    /* Add additional styles as needed */
+    font-size: 140%;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif; /* Using the linked Google Font */
+
+}
+
+.arabic-headers{
+    color: #1B447A;
+    font-family: 'Mahmoudart-bold', sans-serif; /* Using the linked Google Font */
+    direction: rtl;
+    font-size: 2rem;
+
+}
+.arabic-paragraph{
+    color: #1B447A;
+    font-family: 'Mahmoudart', sans-serif; /* Using the linked Google Font */
+    direction: rtl;
+
+}
+
+.arabic-paragraph-white{
+  color: #ffffff !important;
+  font-family: 'Mahmoudart', sans-serif; /* Using the linked Google Font */
+  direction: rtl;
+
+}
+.arabic-accordian{
+    background-color: rgb(232, 226, 255); /* This is an example background color */
+    color:#623abd;
+    font-family: 'Mahmoudart', sans-serif; 
+    direction: rtl;
+}
+
+.bg-purple {
+    background-color: rgb(213, 203, 255); /* This is an example background color */
+    color: #dee2e6;
+    
+}
+.bg-creamy{
+    background-color: #F7F7F8; /* Example background color */
+
+}
+.size-countdown{
+    width: 750px; 
+   height: auto;
+}
+
+.video-row {
+    margin-bottom: 15px; /* Spacing between rows of video cards */
+}
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+    padding: 0 15px; /* Adjust padding for spacing between cards */
+}
+
+/* Adjust video card styles for responsiveness */
+.video-card {
+    width: 100%; /* Full width within the column */
+    margin-bottom: 15px; /* Space between stacked cards on smaller screens */
+    max-width: 18rem; /* Maximum width of the card */
+}
+
+/* Video Wrapper and Iframe */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col-md-4 {
+        padding: 0 10px; /* Reduced padding on smaller screens */
+    }
+
+    .video-card {
+        max-width: none; /* Allow cards to expand to full width of the column */
+    }
+}
+
+/* .footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    opacity:0.9;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  } */
+  .arabic-headers .countdown-container {
+    text-align: center; /* Center-align the countdown timer */
+}
+.circle-text {
+  /* Text styling */
+  color: white; /* White text color */
+  text-align: center; /* Center the text horizontally */
+  vertical-align: middle; /* Center the text vertically */
+  line-height: 100px; /* Adjust this to the height of your circle */
+
+  /* Circle styling */
+  background-color: grey; /* Grey background for the circle */
+  border-radius: 50%; /* Round the corners to make it a circle */
+  width: 100px; /* Width of the circle */
+  height: 100px; /* Height of the circle */
+
+  /* Optional: Center the circle in its container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rounded-text {
+  /* Text styling */
+  color: white; /* White text color */
+  padding: 2.5px 8px; /* Top & Bottom | Left & Right padding around the text */
+font-size:xx-small;
+  /* Background styling */
+  background-color: #623abd; /* Grey background */
+  border-radius: 25px; /* Rounded corners */
+
+  /* Optional: Additional styling */
+  display: inline-block; /* Keeps the background only around the text */
+  text-align: center; /* Center the text */
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+/* Additional CSS to manage strong tag and p tag spacing */
+.member-info strong, .member-info p {
+    margin: 0px;
+}
+
+.teams {
+  direction: rtl;
+  color: white;
+  text-align: end;
+  background: linear-gradient(90deg, rgba(202,172,255,1) 0%, rgba(141,122,255,1) 81%);
+  border: none;
+  border-radius: 19px;
+  margin-bottom: 16px; /* Add some space below each card */
+  position: relative; /* Needed for absolute positioning of the join button */
+}
+
+.join {
+  width: 100%;
+  color: white;
+  background-color: #634BF2;
+  border: none;
+  padding: 8px 0;
+  border-radius: 0 0 19px 19px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.card-body {
+  text-align: start;
+  padding-bottom: 48px; /* Make space for the button */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .card-columns {
+      column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-columns {
+      column-count: 1;
+  }
+}
+
+.nav-logo {
+  max-height: 40px; /* Adjust this value as needed */
+}
+
+@media (min-width: 992px) {
+  .navbar .d-flex {
+      justify-content: center; /* Center logos above navbar */
+      flex-wrap: wrap;
+  }
+}
+
+/* .navbar .nav-link, .btn-warning {
+  color: #1B447A!important;  Ensure nav links and buttons are black 
+} */
+
+.btn-outline-dark {
+  border-color: #2B89C2 !important;
+  color: #2B89C2 !important;
+}
+
+/* When the navbar is collapsed (mobile view) */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0; /* No padding to interfere with the logo */
+    position: static; /* Ensure the navbar items don't affect layout */
+  }
+
+
+  .navbar-nav {
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  /* Keep the collapse button centered */
+  .navbar-toggler {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* Lock logo position so it doesn't move when navbar is collapsed or uncollapsed */
+  .navbar-brand {
+    position: static; /* Ensure it doesn't move */
+    margin-right: auto; /* Align it to the right */
+    display: inline-block; /* Make sure it doesn't collapse */
+    max-width: 120px; /* Set a reasonable max width */
+    top: 0; /* Ensure it's aligned with the top of the navbar */
+}
+
+  /* Adjust the ribbon padding to prevent shrinking */
+  .navbar {
+      padding: 1.2rem 1.5rem;
+      min-height: 80px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0; /* No padding to interfere with the logo */
+    position: static; /* Ensure the navbar items don't affect layout */
+  }
+
+
+  .navbar-nav {
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  .navbar-toggler {
+      margin-right: auto;
+      margin-left: auto;
+  }
+
+  /* Lock logo position for tablet view */
+  /* For desktop and tablet view */
+  .navbar-brand {
+    position: static; /* Ensure it doesn't move */
+    margin-right: auto; /* Align it to the right */
+    display: inline-block; /* Make sure it doesn't collapse */
+    max-width: 120px; /* Set a reasonable max width */
+    top: 0; /* Ensure it's aligned with the top of the navbar */
+}
+
+  .navbar {
+      padding: 1.2rem 1.5rem;
+      min-height: 80px;
+  }
+}
+
+
+
+
+
+.btn-outline-dark:hover {
+  background-color: #2B89C2; 
+  color: white !important; /* White text on hover */
+}
+
+.btn-warning {
+  background-color: #F59C23 !important;
+  border-color: #F59C23 !important;
+  color: #ffffff !important; /* Make text white for better visibility */
+  border-radius: 50px !important;
+  padding: 8px 25px !important;
+  min-width: 120px;
+}
+
+.dropdown-menu {
+  text-align: center; /* Center-align dropdown items */
+}
+
+@media (max-width: 768px) {
+  .table-responsive .table td, .table-responsive .table th {
+      /* Adjust padding, font-size here to make table more compact */
+      padding: 0.5rem;
+      font-size: 0.875rem;
+  }
+  /* Optionally hide less important columns on smaller screens */
+  .table-responsive .table th:nth-child(2),
+  .table-responsive .table td:nth-child(2) {
+      display: none;
+  }
+}
+
+/* alsayed edits */
+
+
+/* Ensure the navbar behaves properly in both desktop and mobile views */
+/* Center the navbar collapse button and logo */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+/* Navbar collapse button */
+.navbar-toggler {
+  margin-left: auto; /* Ensure the button stays on the right */
+  z-index: 1001; /* Ensure it doesn't overlap */
+  border-color: #1B447A !important;
+}
+
+.navbar-toggler-icon { /*This changes the colour of the icon of the navbar collapse button*/
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(27, 68, 122, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Navbar brand (logo) */
+/* Ensure the logo has no unintended margins or padding */
+.navbar-brand {
+  max-width: 120px; /* Keep the logo size consistent */
+  margin-left: auto; /* Align logo to the right like the buttons */
+  margin-right: 10px;
+  display: inline-block;
+  position: static;
+}
+
+
+
+.super-img{
+  width: 100%
+
+
+}
+
+.edu {
+  border-right: 2px solid white; /* Adjust the border width as needed */
+  padding-right: 15px; /* Adds some space to the right of the .edu logo */
+  margin-right: 15px; /* Adds additional space between the logos */
+  width: 65px;
+}
+
+
+
+.avatar{
+  padding-left: 14px;
+}
+.navbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; 
+  color: white;
+}
+.nav-item {
+  margin: 0 10px;
+  padding: 10px 0; 
+  color: white; 
+  text-decoration: none; 
+  font-size: 1em; 
+}
+
+
+.sec1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  background-color: #FCF6FF; /* Adjust the background color as needed */
+  color: #8B7AF0;
+  padding: 25px; /* Adjust the padding as needed */
+}
+.cubeQmark{
+  width: 340px;
+}
+.bigtext{
+  font-size: 4em; /* Adjust the font size as needed */
+  margin-bottom: 0.5em; /* Adjust the space between the h1 and the paragraph */
+  color: #1C1B1E;
+  text-align: center;
+  padding: 55px 55px 0 55px;
+  margin-top: 50px;
+}
+
+.sec1-text1 {
+  font-size: 1.8em; /* Adjust the font size as needed */
+  margin-bottom: 1em; /* Adjust the space between paragraphs as needed */
+  padding-right: 30px;
+  margin-right: 10px;
+}
+
+.sec1-img {
+  flex: 1;
+  text-align: center; /* Center the image in the div if needed */
+}
+
+.sec1-img img {
+  max-width: 100%; /* Make sure the image is responsive and doesn't overflow */
+  height: auto; /* Maintain the aspect ratio of the image */
+}
+.section2 {
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);  
+  gap: 45px 40px; /* Space between cards */
+  justify-content: center; /* Center the grid items horizontally */
+  padding: 70px; /* Padding around the entire grid */
+  background-color: #FCF6FF;
+}
+.cardsae {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+
+  position: relative;
+  width: 426px; /* You can adjust the width as needed */
+  min-height: 176px; /* Set a minimum height */
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+.card-titlesae {
+  font-size: 27px;
+  line-height: 51px;
+  text-align: center;
+  color: #8B7AF0;
+  margin: 10px 0; /* Add some margin around the title */
+}
+
+.card-textsae {
+  font-family: 'Mahmoudart';
+  font-size: 18px;
+  line-height: 34px;
+  text-align: center;
+  color: #1C1B1E;
+  margin: 10px 0; /* Add some margin around the text */
+}
+
+.card-logo {
+  display: block; /* Makes the <img> a block-level element */
+  margin: 0 auto; /* Centers the image horizontally */
+  width: auto; /* Keeps original image width */
+  height: auto; /* Keeps original image height */
+}
+
+.section3{
+  display: flex;  
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.card2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+  width: 426px;
+
+  background: #FCF6FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card2-title{
+  width: 298px;
+  height: 51px;
+
+  font-family: 'Mahmoudart-bold';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 51px;
+  /* identical to box height */
+  text-align: center;
+  color: #8B7AF0;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.card2-text{
+  width: 386px;
+  height: 204px;
+
+  font-family: 'Mahmoudart';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  text-align: center;
+
+  color: #1C1B1E;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+.section4 .bigtext{
+  margin-top: 50px;
+}
+
+.section4{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px; /* Adjust the gap as needed */
+  justify-content: center; /* Center the grid items */
+  padding: 20px; /* Padding around the entire grid */
+}
+
+.card3{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+  width: 338px;
+  height: 278px;
+
+  background: #FCF6FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.people{
+  width: 125px;
+  height: 125px;
+
+  background: url(STUDENTS.png);
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.section5{
+  display: flex;  
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.card4{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  gap: 10px;
+  width: 338px;
+  height: 278px;
+  background: #FCF6FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+.firstST{
+  background-color: #FFE2A8;
+}
+.secondST{
+  background-color: #E7E7E7;
+}
+.thirdST{
+  background-color: #E2B3AC;
+}
+.card4-title{
+width: 298px;
+height: 35px;
+
+font-weight: 400;
+font-size: 27px;
+line-height: 31px;
+text-align: center;
+color: #1C1B1E;
+margin-bottom: 0px;
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.card4-text{
+width: 298px;
+height: 65px;
+
+font-weight: 700;
+font-size: 30px;
+text-align: center;
+color: #1B1C1E;
+flex: none;
+order: 2;
+flex-grow: 0;
+margin-top: 0;
+}
+
+/* Right-align text and set direction to RTL for button and body */
+.accordion-button,
+.accordion-body {
+  text-align: right;
+  direction: rtl;
+}
+
+.accordion-button {
+  color: #2B89C2 !important;
+}
+
+/* Position the arrow to the left and ensure it points down when the accordion is closed */
+.accordion-button::after {
+  float: left; /* Move the arrow to the left */
+  margin-right: auto; /* Ensure the margin is on the right side */
+  margin-left: 0.5rem; /* Adjust left margin for spacing */
+  transform: rotate(0deg) !important; /* Make sure the arrow points down */
+}
+
+/* Rotate the arrow to point up when the accordion is open */
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg) !important; /* Arrow points up */
+}
+
+.allc {
+  box-sizing: border-box;
+}
+
+.bodyc {
+  background-image: url("/static/images/eduthon_countdown_wallpaper.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+.h1c {
+  font-weight: normal;
+  font-size: 4rem;
+  margin-top: 5rem;
+}
+
+.countdown-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.big-text {
+  font-weight: bold;
+  font-size: 6rem;
+  line-height: 1;
+  margin: 1rem 2rem;
+}
+
+.countdown-el {
+  text-align: center;
+}
+
+.countdown-el span {
+  font-size: 1.3rem;
+}
+
+.timer-background {
+  background-image: url("/static/images/opacity10.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-section {
+  width: 100%;
+  padding: 60px 20px;
+}
+
+.content-bubble {
+  background: linear-gradient(180deg, #1B447A 0%, #516291 100%);
+  border-radius: 50px;
+  padding: 80px;
+  width: 95%;
+  max-width: 1800px; /* Increased for larger screens */
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.landing-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 80px;
+  direction: rtl;
+  margin-bottom: 40px;
+}
+
+.landing-logo {
+  flex: 0 0 auto;
+  width: 280px;
+}
+
+.landing-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.landing-text {
+  flex: 1;
+  color: white;
+  text-align: right;
+  padding-left: 40px; /* Default padding */
+  padding-right: 40px; /* Added right padding */
+}
+
+.landing-header {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.landing-paragraph {
+  font-size: 1.25rem;
+  margin-bottom: 35px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.button-wrapper {
+  text-align: center; /* Center the button */
+  width: 100%;
+}
+
+.signup-button {
+  background: white;
+  color: #1B447A;
+  padding: 20px 70px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1.4rem;
+  min-width: 250px;
+}
+
+.signup-button:hover {
+  background: linear-gradient(to left, #53328B, #2B89C2);
+  color: white;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1200px) {
+  .signup-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    min-width: 180px;
+  }
+
+  .content-bubble {
+    padding: 40px 25px;
+    border-radius: 40px;
+    width: 95%;
+  }
+
+  .landing-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .landing-logo {
+    width: 200px;
+  }
+
+  .landing-text {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .landing-header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .landing-paragraph {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1400px) {
+  .content-bubble {
+    padding: 100px;
+  }
+
+  .landing-logo {
+    width: 320px;
+  }
+
+  .landing-text {
+    padding-left: 120px;
+    padding-right: 80px;
+  }
+
+  .signup-button {
+    padding: 25px 90px;
+    font-size: 1.6rem;
+    min-width: 300px; /* Larger minimum width for bigger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .signup-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    min-width: 180px; /* Smaller minimum width for mobile */
+  }
+}
+
+/* Dark Blue Section */
+.tourism-section {
+  background-color: #1B447A;
+  padding: 40px 20px; /* Increase vertical padding */
+  width: 100%;
+  /* Optionally force full viewport height if you want a tall hero:
+     min-height: 100vh; 
+  */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icons Row */
+.pattern-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;       /* Increase spacing between icons */
+  margin-bottom: 60px; /* Increase space below icons */
+}
+
+.pattern-icon {
+  width: 60px;     /* Increase icon width */
+  height: 60px;    /* Increase icon height */
+  object-fit: contain;
+}
+
+/* Heading in Dark Blue Section */
+.arabic-headers-white {
+  font-size: 2rem;       /* Increase heading size */
+  line-height: 1.3;
+  margin-bottom: 30px;   /* Increase spacing below heading */
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Mahmoudart-bold', sans-serif;
+  direction: rtl;
+}
+
+/* Light Blue Section */
+.paragraph-section {
+  background-color: #2B89C2;
+  padding: 80px 20px; /* Increase vertical padding */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Paragraph in Light Blue Section */
+.arabic-paragraph-white {
+  font-size: 1.2rem;   /* Increase paragraph text size */
+  line-height: 1.8;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Mahmoudart', sans-serif;
+  direction: rtl;
+}
+
+.paragraph-bg {
+  background-color: #2B89C2; /* Lighter blue */
+  padding: 40px 0;          /* Add vertical spacing around the paragraph */
+}
+
+/* Larger desktops (Bootstrap's "lg" breakpoint starts at 992px) */
+@media (min-width: 992px) {
+  .pattern-icons {
+    gap: 60px;          /* More space between icons */
+    margin-bottom: 80px; 
+  }
+  .pattern-icon {
+    width: 80px;        /* Bigger icons on desktop */
+    height: 80px;
+  }
+
+  .arabic-headers-white {
+    font-size: 3rem;    /* Bigger heading on desktop */
+  }
+
+  .tourism-section,
+  .paragraph-section {
+    padding: 120px 40px; /* More padding on desktop */
+  }
+
+  .arabic-paragraph-white {
+    font-size: 1.4rem;  /* Slightly bigger paragraph text */
+    line-height: 2;
+  }
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .pattern-icons {
+      gap: 20px;
+  }
+  
+  .pattern-icon {
+      width: 30px;
+      height: 30px;
+  }
+  
+  .arabic-headers-white {
+      font-size: 1.8rem;
+  }
+  
+  .arabic-paragraph-white {
+      font-size: 1rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 576px) {
+  .pattern-icons {
+      gap: 15px;
+  }
+}
+
+/* Ensure logo container is positioned top-left */
+.tourism-section .logos {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+    z-index: 10; /* Ensure logos are on top */
+}
+
+.tourism-section .logos img {
+    width: 60px;
+    height: 96px;
+}
+
+/* Heading styles */
+.tourism-section h1 {
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Paragraph styles */
+.tourism-section p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #B0C9DA;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .tourism-section h1 {
+        font-size: 2em;
+    }
+
+    .tourism-section p {
+        font-size: 1em;
+    }
+
+    .tourism-section .logos img {
+        width: 60px;
+        height: 96px;
+    }
+}
+
+/* Tracks Section */
+.tracks-section {
+  background: linear-gradient(to bottom, #1B447A 0%, #ffffff 100%);
+  padding: 80px 0;
+  direction: rtl;
+  text-align: center;
+}
+
+.tracks-title {
+  color: #ffffff;
+  margin-bottom: 60px;
+  font-size: 3rem;
+}
+
+.tracks-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.track-card {
+  width: 320px;
+  height: 380px;
+  perspective: 1000px;
+  position: relative;
+  cursor: pointer;
+}
+
+.track-card-front, 
+.track-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.track-card-front {
+  background-color: white;
+  transform: rotateY(0deg);
+}
+
+.track-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.track-card:hover .track-card-front {
+  transform: rotateY(180deg);
+}
+
+.track-card:hover .track-card-back {
+  transform: rotateY(0deg);
+}
+
+.track-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+.track-name {
+  font-family: 'Mahmoudart-bold', sans-serif;
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.track-name-back {
+  font-family: 'Mahmoudart-bold', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.track-name.literature {
+  color: #EE5D66;
+}
+
+.track-name.visual-arts {
+  color: #53328B;
+}
+
+.track-name.heritage {
+  color: #F59C23;
+}
+
+.track-description {
+  font-family: 'Mahmoudart', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2B89C2;
+  text-align: center;
+}
+
+/* Set background colors for the back of cards */
+.track-card[data-color="#EE5D66"] .track-card-back {
+  background-color: #EE5D66;
+}
+
+.track-card[data-color="#53328B"] .track-card-back {
+  background-color: #53328B;
+}
+
+.track-card[data-color="#F59C23"] .track-card-back {
+  background-color: #F59C23;
+}
+
+/* Adjust text color for different card backs */
+.track-card[data-color="#EE5D66"] .track-description,
+.track-card[data-color="#F59C23"] .track-description {
+  color: #1B447A;
+}
+
+.track-card[data-color="#53328B"] .track-description {
+  color: #2B89C2;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .track-card {
+      width: 280px;
+      height: 340px;
+  }
+  
+  .tracks-title {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+  }
+  
+  .track-name, .track-name-back {
+      font-size: 1.5rem;
+  }
+  
+  .track-description {
+      font-size: 0.95rem;
+  }
+  
+  /* For mobile: make cards clickable rather than hover */
+  .track-card-front {
+      transform: rotateY(0deg);
+  }
+  
+  .track-card-back {
+      transform: rotateY(180deg);
+  }
+  
+  .track-card.flipped .track-card-front {
+      transform: rotateY(180deg);
+  }
+  
+  .track-card.flipped .track-card-back {
+      transform: rotateY(0deg);
+  }
+  
+  /* Remove hover effects on mobile */
+  .track-card:hover .track-card-front,
+  .track-card:hover .track-card-back {
+      transform: none;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+  .track-card {
+      width: 260px;
+      height: 320px;
+  }
+}
+
+.faq-section {
+  position: relative;
+  padding: 40px 0;
+}
+
+.faq-header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  background-color: transparent;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.pattern-strip {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Right side - fixed 4 patterns */
+.pattern-unit-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.pattern-unit-right img {
+  height: 30px;
+  margin: 0 2px;
+}
+
+/* Middle - title */
+.faq-title {
+  color: #1B447A;
+  font-family: 'Mahmoudart-bold', sans-serif;
+  font-size: 2.5rem;
+  margin: 0 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  order: 2;
+}
+
+/* Left side - generated patterns */
+.pattern-unit-left {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  order: 3;
+}
+
+.pattern-unit-left img {
+  height: 30px;
+  margin: 0 2px;
+}
+
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1B447A;
+  font-family: 'Mahmoudart', sans-serif;
+  direction: rtl;
+  cursor: pointer;
+  font-size: 1.1rem; /* Increased from default */
+  font-weight: 600;
+}
+
+.faq-arrow {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 20px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  direction: rtl;
+  color: #666;
+  background-color: #f8f9fa;
+  font-family: 'Mahmoudart', sans-serif;
+  font-size: 1rem;
+}
+
+.faq-item.active .faq-answer {
+  height: auto;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .pattern-unit-left img,
+  .pattern-unit-right img {
+    height: 20px;
+  }
+  
+  .faq-title {
+    font-size: 1.8rem;
+    margin: 0 10px;
+  }
+  
+  .faq-question {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.9rem;
+  }
+}

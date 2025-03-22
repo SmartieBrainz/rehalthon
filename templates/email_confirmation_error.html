@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Email Confirmation Error</h4>
+        <p>{{ message }}</p>
+        <hr>
+        <p class="mb-0">If you believe this is an error, please contact support or try registering again.</p>
+    </div>
+</div>
+{% endblock %}

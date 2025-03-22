@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="/static/images/Rehal_no_txt.png">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="description" content="Join the Eduthon Hackathon to innovate in education. A leading event for students and innovation enthusiasts. | شارك في هاكاثون إيدثون  للابتكار في التعليم - فعالية رائدة للطلاب وعشاق الابتكار.">
+    <title>Rehal - رحال</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500&family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/styles.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/features.css'>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('search-input').addEventListener('keyup', searchTeams);
+            // No need for the onclick on the button if using onkeyup on the input
+        });
+        
+        function searchTeams() {
+            console.log("searchTeams called");
+            let input = document.getElementById('search-input');
+            let filter = input.value.toUpperCase();
+            console.log("Filter:", filter);
+            let cardsContainer = document.querySelector('.container .row'); // More specific selector
+            let teamCards = cardsContainer.getElementsByClassName('teams');
+            console.log("Found team cards:", teamCards.length);
+        
+            for (let i = 0; i < teamCards.length; i++) {
+                let teamNameElement = teamCards[i].getElementsByClassName('card-title')[0];
+                if (teamNameElement) {
+                    let teamName = teamNameElement.textContent || teamNameElement.innerText;
+                    if (teamName.toUpperCase().indexOf(filter) > -1) {
+                        teamCards[i].style.display = ""; // Adjusted to affect the card directly
+                    } else {
+                        teamCards[i].style.display = "none"; // Adjusted to affect the card directly
+                    }
+                }
+            }
+        }
+        </script>
+
+
+
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+});
+
+    </script>
+
+
+
+
+
+</head>
+<body class="bg-body">
+    
+
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-gradient-eduthon arabic-paragraph" style="direction: ltr;">
+        <div class="container-fluid">
+            <!-- Sign Up and Login buttons on the left side -->
+            <div class="d-flex gap-2" style="direction:ltr;">
+                {% if session.user_id %}
+                    <!-- Dropdown for logged-in users with profile image -->
+                    <a class="dropdown-toggle" href="#" id="navbarAvatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/static/images/Frame 14.png" width="36" alt="avatar" />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarAvatarDropdown">
+                        <li><a class="dropdown-item" href="/dashboard">حسابي</a></li>
+                        <li><a class="dropdown-item" href="/my_team">فريقي</a></li>
+                        <li><a class="dropdown-item" href="/logout">تسجيل الخروج</a></li>
+                    </ul>
+                {% else %}
+                    <!-- Sign Up and Login buttons only when not logged in -->
+                    <a class="btn btn-warning white-nav-link" href="/register">سجل في رحال</a>
+                    <a class="btn btn-outline-light" href="/login">تسجيل الدخول</a> 
+                {% endif %}
+            </div>
+           
+            <!-- Navbar Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           
+            <!-- Navbar Links in the center -->
+            <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent" style="direction: rtl;">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link white-nav-link" href="/">الصفحة الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link white-nav-link" href="/teams">تصفح الفرق</a></li>
+                    <li class="nav-item"><a class="nav-link white-nav-link" href="https://www.ftcksu.com/about">من نحن</a></li>
+                    <li class="nav-item"><a class="nav-link white-nav-link" href="/contact">تواصل معنا</a></li>
+                    {% if session.user_id %}
+                        <li class="nav-item"><a class="nav-link white-nav-link" href="/dashboard">حسابي</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <!-- Logo on the right side -->
+             <a href="/">
+            <div class="d-flex align-items-center">
+                <img src="/static/images/rehal-text-white.png" alt="Rehal Logo" style="height: 46px;" >
+            </div>  
+            </a>
+        </div>
+    </nav>  
+            
+            
+            
+
+
+
+<!-- THIS PART IS CAUSING PROBLEMS AND I DONT KNOW WHY ITS HERE -->
+
+    <!-- <div class="container"  >
+{% for category, message in get_flashed_messages(with_categories=true) %}
+<br>
+        <div class="alert alert alert-{{category}} flex" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div> -->
+
+    
+<div style="min-height: 65vh">
+
+
+
+
+    {% block content %}
+
+    {% endblock %}
+</div>
+ {% include "footer.html" %}
+ 
+</body>
+</html>
