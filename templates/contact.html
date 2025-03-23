@@ -8,8 +8,8 @@
     body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #4032ff, #a83ce7, #ffffff, #6723d5);
+    font-family: 'Mahmoudart', sans-serif;
+    background: linear-gradient(135deg, #4CB8C4, #2B89C2, #ffffff); /* Replacing dark blue with a teal color */
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -25,86 +25,114 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 40px 20px;
 }
 
 .contact-form-container {
     background: white;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    direction: rtl;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-family: 'Mahmoudart-bold', sans-serif;
+    color: #1B447A;
+    font-size: 2.5rem;
 }
 
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .input-group input, .input-group textarea {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #ccc;
+    padding: 12px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 15px;
+    background: #f8f9fa;
+    color: #1B447A;
+    font-family: 'Mahmoudart', sans-serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #2B89C2;
+    box-shadow: 0 0 0 3px rgba(43, 137, 194, 0.2);
     outline: none;
-    background: transparent;
 }
 
 .input-group label {
     position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+    right: 15px; /* Adjust for RTL */
+    top: 12px;
+    color: #6c757d;
     transition: all 0.3s ease;
+    background: #f8f9fa;
+    padding: 0 5px;
+    font-family: 'Mahmoudart', sans-serif;
 }
 
-.input-group input:focus ~ label, .input-group input:valid ~ label,
-.input-group textarea:focus ~ label, .input-group textarea:valid ~ label {
-    transform: translateY(-20px);
-    font-size: 12px;
-    color: #23a6d5;
-}
+.input-group input:focus ~ label, 
+    .input-group input:valid ~ label,
+    .input-group textarea:focus ~ label, 
+    .input-group textarea:valid ~ label {
+        transform: translateY(-25px) scale(0.9);
+        background: white;
+        padding: 0 5px;
+        color: #2B89C2;
+    }
 
 .contact-submit-btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #f9b5ff;
+    background: #1B447A;
     color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-family: 'Mahmoudart-bold', sans-serif;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background 0.5s ease;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
+
 .contact-submit-btn:hover {
-    background: #1e90ff;
+    background: linear-gradient(to left, #4CB8C4, #2B89C2); /* Updated to match new gradient */
 }
 
 .btn-bd-discord {
-  --bs-btn-font-weight: 600;
-  --bs-btn-color: #ffffff;
-  --bs-btn-bg: #6f42c1; 
-  --bs-btn-border-color: #6f42c1;
-  --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #5a34a5;
-  --bs-btn-hover-border-color: #5a34a5;
-  --bs-btn-focus-shadow-rgb: 111, 66, 193;
-  --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: #4d277f; 
-  --bs-btn-active-border-color: #4d277f;
-  font-weight: var(--bs-btn-font-weight);
-  color: var(--bs-btn-color);
-  background-color: var(--bs-btn-bg);
-  border-color: var(--bs-btn-border-color);
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #5865F2; /* Discord color */
+    border-color: #5865F2;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-family: 'Mahmoudart', sans-serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
 .btn-bd-discord:hover {
-  color: var(--bs-btn-hover-color);
-  background-color: var(--bs-btn-hover-bg);
-  border-color: var(--bs-btn-hover-border-color);
+    opacity: 0.9;
+    color: white;
+    background-color: #4752C4; /* Slightly darker Discord color on hover */
 }
 
 .btn-bd-discord:focus {
@@ -116,6 +144,37 @@ h2 {
   background-color: var(--bs-btn-active-bg);
   border-color: var(--bs-btn-active-border-color);
 }
+
+.contact-info {
+        text-align: center;
+        color: #1B447A;
+        font-family: 'Mahmoudart', sans-serif;
+        direction: rtl;
+    }
+
+    .contact-info p {
+        margin: 15px 0;
+    }
+
+    .contact-info a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+        color: #cdc5e0;
+    }
+
+    .card {
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .card-body {
+        padding: 25px;
+    }
 
 </style>
 
@@ -139,27 +198,21 @@ h2 {
             <button type="submit" class="contact-submit-btn">ارسل</button>
         </form>
     </div>
-    
-
-
 </div>
 
 <br>
 <div class="contact-container arabic-paragraph">
-<div class="card mt-3">
-  <div class="card-body">
-    <div class="contact-info text-center">
-        <p>أو تواصل معنا عبر الديسكورد:</p>
-       <a class="btn btn-bd-discord m-2" style="direction: ltr;" href="https://discord.com/invite/RCapKkZF">
-                    <img src="/static/images/discord-white-icon.webp" alt="Discord" style="width: 24px; height: 24px; vertical-align: text-bottom;"> Eduthon Discord
+    <div class="card">
+        <div class="card-body">
+            <div class="contact-info">
+                <p>أو تواصل معنا عبر الديسكورد:</p>
+                <a class="btn btn-bd-discord" href="https://discord.gg/EZCM7Zf7WD">
+                    <img src="/static/images/discord-white-icon.webp" alt="Discord" style="width: 24px; height: 24px;"> منصة رحال
                 </a>
-      <p>أو عبر البريد الإلكتروني: <a href="eduthon.ftc@gmail.com">eduthon.ftc@gmail.com</a></p>
-        
+                <p>أو عبر البريد الإلكتروني: <a href="mailto:rehalthon@gmail.com" style="color: #4752C4;">rehalthon@gmail.com</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</div>
-
 </div>
 
 
